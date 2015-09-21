@@ -1,7 +1,7 @@
 # angular-material-with-clear
 angular material component that can add content clear function to element
 
-### [demo]() ###
+### [demo](http://blog.0xfc.cn/2015/09/21/clear/) ###
 > ![demo](http://7xl1b4.com1.z0.glb.clouddn.com/content-clear.png)
 
 **demo**
@@ -18,3 +18,7 @@ angular material component that can add content clear function to element
 
 > in you index.html include angular-material-with-clear.js and angular-material-with-clear.css
 > `app.module('your angular app name', 'fc.clear')`
+
+**options**
+
+> the principle of this component is wraping the element which is need to clear content with "div></div>", you can put fcclear as attribute in the element. While fc-class is the wrap div style and fc-icon-class is the icon style.
