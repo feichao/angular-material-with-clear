@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoClear">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>demo paging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+  <style>
+  .clear-content {
+    position: relative;
+    width: 400px;
+  }
+  
+  .clear-icon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    fill: rgb(102, 102, 102);
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    outline: none;
+  }
+  </style>
+</head>
+
+<body>
+  <div ng-controller="DemoCtrl" style="margin: 20px;">
+    <md-input-container md-no-float fcclear fc-class="clear-content" fc-icon-class="clear-icon">
+      <input ng-model="machineCode" placeholder="Search">
+    </md-input-container>
+    <!-- <md-input-container md-no-float fcclear fc-right="40">
+      <input ng-model="machineCode" placeholder="Search">
+    </md-input-container>
+    <md-select placeholder="Select" fcclear ng-model="projectSelect" ng-change="updateProjectSelect()">
+      <md-option ng-value="project" ng-repeat="project in projects">{{ project.name }}</md-option>
+    </md-select> -->
+  </div>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+  <script src="bower_components/angular-material-clear/src/angular-material-with-clear.js"></script>
+  <script>
+  angular
+    .module('demoClear', [
+      'ngMaterial',
+      'ngMdIcons',
+      'fc.clear'
+    ]).controller('DemoCtrl', DemoCtrl);
+
+  function DemoCtrl($scope) {
+    $scope.projects = [{
+      name: 'abce',
+    }, {
+      name: 'cdfr'
+    }]
+  }
+  </script>
+</body>
+
+</html>
