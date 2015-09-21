@@ -1,0 +1,14 @@
+.clear-content {
+  position: relative;
+}
+
+.clear-icon {
+  cursor: pointer;
+  fill: rgb(102, 102, 102);
+  height: 18px;
+  outline: none;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 18px;
+}
