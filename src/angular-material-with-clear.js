@@ -51,7 +51,7 @@
     tplDiv.append(tplEle);
     tplDiv.append(tplClear);
 
-    tplDiv.attr('flex', flex);
+    flex && tplDiv.attr('flex', flex);
     tplDiv.addClass(contentClass);
     tplDiv.find('ng-md-icon').addClass(iconClass);
 
