@@ -1,6 +1,4 @@
-(function() {
-  'use strict';
-
+(function(window, angular, undefined) { 'use strict';
   angular
     .module('fc.clear', [])
     .directive('fcclear', FcClear);
@@ -61,5 +59,4 @@
       ele.remove();
     };
   }
-
-})();
+})(window, window.angular);
