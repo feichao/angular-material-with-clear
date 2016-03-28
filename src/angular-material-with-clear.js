@@ -8,11 +8,6 @@
   function FcClear() {
     return {
       restrict: 'A',
-      scope: {
-        fcClass: '@',
-        fcIconClass: '@',
-        fcModelType: '@'
-      },
       controllerAs: 'vm',
       template: '',
       compile: Compile
@@ -21,11 +16,12 @@
 
   function Compile(tEle, tAttrs, transcludeFn) {
     // init clear element
+    var clearTip = tEle.attr('fc-clear-tip') || '';
     var tplDiv = angular.element('<div class="clear-content"></div>');
     var tplClear = angular.element([
       '<ng-md-icon icon="cancel" size="18" class="clear-icon">',
       ' <md-tooltip>',
-      '   Clear',
+      clearTip || 'Clear',
       ' </md-tooltip>',
       '</ng-md-icon>'
     ].join(''));
