@@ -5,15 +5,13 @@
     .module('fc.clear', [])
     .directive('fcclear', FcClear);
 
-  /**
-   * @ngInject
-   */
   function FcClear() {
     return {
       restrict: 'A',
       scope: {
         fcClass: '@',
-        fcIconClass: '@'
+        fcIconClass: '@',
+        fcModelType: '@'
       },
       controllerAs: 'vm',
       template: '',
@@ -21,10 +19,8 @@
     };
   }
 
-  /**
-   * @ngInject
-   */
   function Compile(tEle, tAttrs, transcludeFn) {
+    // init clear element
     var tplDiv = angular.element('<div class="clear-content"></div>');
     var tplClear = angular.element([
       '<ng-md-icon icon="cancel" size="18" class="clear-icon">',
@@ -36,8 +32,16 @@
 
 
     var model = tEle.find('input').attr('ng-model') || tEle.attr('ng-model');
-    tplClear.attr('ng-click', model + '=""');
-    tplClear.attr('ng-show', model);
+    var modelType = (tEle.attr('fc-model-type') || '').toLowerCase();
+
+    if(modelType === 'array') {
+      tplClear.attr('ng-click', model + '=[]');
+      tplClear.attr('ng-show', model + '.length > 0');
+    } else {
+      tplClear.attr('ng-click', model + '=""');
+      tplClear.attr('ng-show', model);
+    }
+    
 
     var tplEle = tEle.clone();
     var contentClass = tplEle.attr('fc-class') || '';
@@ -52,8 +56,8 @@
     tplDiv.append(tplClear);
 
     flex && tplDiv.attr('flex', flex);
-    tplDiv.addClass(contentClass);
-    tplDiv.find('ng-md-icon').addClass(iconClass);
+    contentClass && tplDiv.addClass(contentClass);
+    iconClass && tplDiv.find('ng-md-icon').addClass(iconClass);
 
     tEle.after(tplDiv);
 
